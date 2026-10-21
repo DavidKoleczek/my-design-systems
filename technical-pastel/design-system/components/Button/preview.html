@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.setAttribute('data-theme', new URLSearchParams(location.search).get('theme') || 'light');</script>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../bundle.css">
+<script src="../vendor/react.production.min.js"></script>
+<script src="../vendor/react-dom.production.min.js"></script>
+<script src="../bundle.js"></script><meta charset="utf-8"><title>Button</title>
+<style>.stage{display:flex;flex-direction:column;gap:12px;padding:16px}.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}</style></head>
+<body>
+<div id="root" class="stage"></div>
+<script>
+  var P = window.TechnicalPastel, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h('div', { className: 'row' },
+      h(P.Button, { variant: 'primary', icon: 'add' }, 'New project'),
+      h(P.Button, null, 'Open'),
+      h(P.Button, { variant: 'ghost' }, 'Recent'),
+      h(P.Button, { variant: 'danger' }, 'Delete project'),
+      h(P.Button, { disabled: true }, 'Export')),
+    h('div', { className: 'row' },
+      h(P.Button, { variant: 'primary', size: 'sm', icon: 'export' }, 'Export'),
+      h(P.Button, { size: 'sm' }, 'Add marker'),
+      h(P.Button, { variant: 'ghost', size: 'sm', icon: 'undo', 'aria-label': 'Undo' }),
+      h(P.Button, { variant: 'ghost', size: 'sm', icon: 'redo', 'aria-label': 'Redo' }),
+      h(P.Button, { variant: 'ghost', size: 'sm', icon: 'more', 'aria-label': 'More' })),
+    h('div', { className: 'row' },
+      h(P.Button, { variant: 'primary', size: 'lg' }, 'Render'),
+      h(P.Button, { size: 'lg', icon: 'play' }, 'Preview'))));
+</script>
+</body>
+</html>

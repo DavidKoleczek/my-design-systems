@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor</title>
+<link rel="stylesheet" href="technical-pastel/tokens.css">
+<link rel="stylesheet" href="technical-pastel/components/bundle.css">
+<style>body{margin:0}
+a{color:inherit}a:hover{color:inherit}</style>
+<script src="technical-pastel/components/vendor/react.production.min.js"></script>
+<script src="technical-pastel/components/vendor/react-dom.production.min.js"></script>
+<script src="technical-pastel/components/bundle.js"></script>
+</head>
+<body>
+<div data-theme="light" style="min-height: 100vh; display: flex; flex-direction: column; background: var(--canvas); color: var(--ink); font-family: var(--font-sans); font-size: 13px; line-height: 20px;">
+
+<header style="min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 6px 12px; box-sizing: border-box; background: var(--panel); border-bottom: 1px solid var(--line);">
+<a href="home.html" aria-label="Back to your projects" style="display: flex; align-items: center; padding: 4px;"><img src="technical-pastel/logos/technical-pastel-wordmark.svg" alt="Technical Pastel" style="height: 16px; width: auto; display: block;"></a>
+<span aria-hidden="true" style="width: 1px; height: 20px; background: var(--line);"></span>
+<span style="font-weight: 500;">Spring campaign poster</span>
+<span style="font-family: var(--font-mono); font-size: 11px; line-height: 14px; letter-spacing: 0.02em; color: var(--ink-muted);">Saved</span>
+<div style="flex: 1;"></div>
+<x-import component-from-global-scope="TechnicalPastel.Segmented" label="Mode" items="{{ modes }}" default-value="design"></x-import>
+<div style="flex: 1;"></div>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" size="sm" icon="undo" aria-label="Undo"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" size="sm" icon="redo" aria-label="Redo"></x-import>
+<span style="height: 24px; display: flex; align-items: center; padding: 0 8px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--ink);">37%</span>
+<x-import component-from-global-scope="TechnicalPastel.Button" size="sm">Share</x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="primary" size="sm" icon="export">Export</x-import>
+</header>
+
+<div style="flex: 1; display: flex; flex-wrap: wrap; min-height: 0;">
+
+<div role="toolbar" aria-label="Tools" aria-orientation="vertical" style="flex: 0 0 44px; box-sizing: border-box; padding: 8px 8px; background: var(--panel); border-right: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 4px;">
+<button type="button" aria-label="Select" aria-pressed="true" style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; padding: 0; border: 1px solid var(--line-control); border-radius: var(--radius-md); background: var(--field); color: var(--accent-ink); cursor: pointer;"><x-import component-from-global-scope="TechnicalPastel.Icon" name="select" size="20"></x-import></button>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" icon="move" aria-label="Move"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" icon="frame" aria-label="Frame"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" icon="pen" aria-label="Pen"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" icon="shape" aria-label="Shape"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" icon="text" aria-label="Text"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" icon="crop" aria-label="Crop"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" icon="measure" aria-label="Measure"></x-import>
+<div style="flex: 1;"></div>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" icon="grid" aria-label="Show pixel grid"></x-import>
+</div>
+
+<aside aria-label="Layers" style="flex: 1 1 232px; max-width: 248px; box-sizing: border-box; background: var(--panel); border-right: 1px solid var(--line); display: flex; flex-direction: column;">
+<div style="height: 32px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 12px; border-bottom: 1px solid var(--line);">
+<span style="font-size: 12px; line-height: 16px; font-weight: 500;">Layers</span>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" size="sm" icon="add" aria-label="Add layer"></x-import>
+</div>
+<div role="tree" aria-label="Layers" style="padding: 6px 4px; display: flex; flex-direction: column; gap: 1px;">
+<div role="treeitem" aria-expanded="true" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 8px; border-radius: var(--radius-sm); font-weight: 500;"><x-import component-from-global-scope="TechnicalPastel.Icon" name="chevron" size="16" style="color: var(--ink-muted);"></x-import><x-import component-from-global-scope="TechnicalPastel.Icon" name="frame" size="16"></x-import><span style="flex: 1;">Poster</span><span style="width: 10px; height: 10px; box-sizing: border-box; background: var(--pastel-butter); border: 1px solid var(--line-control);"></span></div>
+<div role="treeitem" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 8px 0 36px; border-radius: var(--radius-sm);"><x-import component-from-global-scope="TechnicalPastel.Icon" name="text" size="16" style="color: var(--ink-muted);"></x-import><span style="flex: 1;">Headline</span></div>
+<div role="treeitem" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 8px 0 36px; border-radius: var(--radius-sm);"><x-import component-from-global-scope="TechnicalPastel.Icon" name="text" size="16" style="color: var(--ink-muted);"></x-import><span style="flex: 1;">Dates</span></div>
+<div role="treeitem" aria-selected="true" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 8px 0 36px; border-radius: var(--radius-sm); background: var(--accent-soft); font-weight: 500;"><x-import component-from-global-scope="TechnicalPastel.Icon" name="shape" size="16" style="color: var(--accent-ink);"></x-import><span style="flex: 1;">Sun</span><x-import component-from-global-scope="TechnicalPastel.Icon" name="eye" size="16" style="color: var(--ink-muted);"></x-import></div>
+<div role="treeitem" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 8px 0 36px; border-radius: var(--radius-sm);"><x-import component-from-global-scope="TechnicalPastel.Icon" name="shape" size="16" style="color: var(--ink-muted);"></x-import><span style="flex: 1;">Hills</span></div>
+<div role="treeitem" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 8px 0 36px; border-radius: var(--radius-sm);"><x-import component-from-global-scope="TechnicalPastel.Icon" name="shape" size="16" style="color: var(--ink-muted);"></x-import><span style="flex: 1;">Paper</span><x-import component-from-global-scope="TechnicalPastel.Icon" name="lock" size="16" style="color: var(--ink-muted);"></x-import></div>
+<div role="treeitem" aria-expanded="false" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 8px; border-radius: var(--radius-sm); font-weight: 500;"><x-import component-from-global-scope="TechnicalPastel.Icon" name="chevron" size="16" style="color: var(--ink-muted); transform: rotate(-90deg);"></x-import><x-import component-from-global-scope="TechnicalPastel.Icon" name="frame" size="16"></x-import><span style="flex: 1;">Square post</span><span style="width: 10px; height: 10px; box-sizing: border-box; background: var(--pastel-butter); border: 1px solid var(--line-control);"></span></div>
+<div role="treeitem" aria-expanded="false" style="height: 28px; display: flex; align-items: center; gap: 6px; padding: 0 8px; border-radius: var(--radius-sm); font-weight: 500;"><x-import component-from-global-scope="TechnicalPastel.Icon" name="chevron" size="16" style="color: var(--ink-muted); transform: rotate(-90deg);"></x-import><x-import component-from-global-scope="TechnicalPastel.Icon" name="frame" size="16"></x-import><span style="flex: 1;">Story 9:16</span><span style="width: 10px; height: 10px; box-sizing: border-box; background: var(--pastel-stone); border: 1px solid var(--line-control);"></span></div>
+</div>
+</aside>
+
+<section aria-label="Canvas" style="flex: 999 1 480px; min-width: 0; min-height: 720px; position: relative; overflow: hidden; background: var(--canvas);">
+<div aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 20px; height: 20px; background: var(--panel); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); box-sizing: border-box;"></div>
+<div aria-hidden="true" style="position: absolute; top: 0; left: 20px; right: 0; height: 20px; background: var(--panel); border-bottom: 1px solid var(--line); display: flex; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted); overflow: hidden;">
+<span style="position: absolute; top: 0; bottom: 0; left: 396px; width: 150px; background: var(--accent-soft); border-left: 1px solid var(--accent-ink); border-right: 1px solid var(--accent-ink); box-sizing: border-box;"></span>
+<span style="position: relative; flex: 0 0 100px; border-left: 1px solid var(--line-control); padding: 2px 4px; box-sizing: border-box;">-540</span>
+<span style="position: relative; flex: 0 0 100px; border-left: 1px solid var(--line-control); padding: 2px 4px; box-sizing: border-box;">-270</span>
+<span style="position: relative; flex: 0 0 100px; border-left: 1px solid var(--line-control); padding: 2px 4px; box-sizing: border-box; color: var(--ink);">0</span>
+<span style="position: relative; flex: 0 0 100px; border-left: 1px solid var(--line-control); padding: 2px 4px; box-sizing: border-box;">270</span>
+<span style="position: relative; flex: 0 0 100px; border-left: 1px solid var(--line-control); padding: 2px 4px; box-sizing: border-box;">540</span>
+<span style="position: relative; flex: 0 0 100px; border-left: 1px solid var(--line-control); padding: 2px 4px; box-sizing: border-box;">810</span>
+<span style="position: relative; flex: 0 0 100px; border-left: 1px solid var(--line-control); padding: 2px 4px; box-sizing: border-box; color: var(--ink);">1080</span>
+<span style="position: relative; flex: 0 0 100px; border-left: 1px solid var(--line-control); padding: 2px 4px; box-sizing: border-box;">1350</span>
+<span style="position: relative; flex: 0 0 100px; border-left: 1px solid var(--line-control); padding: 2px 4px; box-sizing: border-box;">1620</span>
+</div>
+<div aria-hidden="true" style="position: absolute; top: 20px; left: 0; bottom: 0; width: 20px; background: var(--panel); border-right: 1px solid var(--line); display: flex; flex-direction: column; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted); overflow: hidden;">
+<span style="position: absolute; left: 0; right: 0; top: 250px; height: 150px; background: var(--accent-soft); border-top: 1px solid var(--accent-ink); border-bottom: 1px solid var(--accent-ink); box-sizing: border-box;"></span>
+<span style="position: relative; flex: 0 0 100px; border-top: 1px solid var(--line-control); box-sizing: border-box; writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 3px;">-270</span>
+<span style="position: relative; flex: 0 0 100px; border-top: 1px solid var(--line-control); box-sizing: border-box; writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 3px; color: var(--ink);">0</span>
+<span style="position: relative; flex: 0 0 100px; border-top: 1px solid var(--line-control); box-sizing: border-box; writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 3px;">270</span>
+<span style="position: relative; flex: 0 0 100px; border-top: 1px solid var(--line-control); box-sizing: border-box; writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 3px;">540</span>
+<span style="position: relative; flex: 0 0 100px; border-top: 1px solid var(--line-control); box-sizing: border-box; writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 3px;">810</span>
+<span style="position: relative; flex: 0 0 100px; border-top: 1px solid var(--line-control); box-sizing: border-box; writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 3px;">1080</span>
+<span style="position: relative; flex: 0 0 100px; border-top: 1px solid var(--line-control); box-sizing: border-box; writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 3px; color: var(--ink);">1350</span>
+<span style="position: relative; flex: 0 0 100px; border-top: 1px solid var(--line-control); box-sizing: border-box; writing-mode: vertical-rl; transform: rotate(180deg); padding: 4px 3px;">1620</span>
+</div>
+
+<div style="position: absolute; left: 220px; top: 96px; display: flex; gap: 8px; align-items: baseline;">
+<span style="font-size: 11px; line-height: 14px; font-weight: 500; color: var(--ink);">Poster</span>
+<span style="font-family: var(--font-mono); font-size: 11px; line-height: 14px; letter-spacing: 0.02em; color: var(--ink-muted);">1080 × 1350</span>
+</div>
+
+<div role="img" aria-label="Poster artwork: a cream page with a peach sun over mint hills and the headline Spring sessions" style="position: absolute; left: 220px; top: 120px; width: 400px; height: 500px; background: #fff3d6; overflow: hidden;">
+<p style="position: absolute; left: 28px; top: 24px; margin: 0; font-size: 56px; line-height: 0.95; font-weight: 600; letter-spacing: -0.04em; color: #12161c;">Spring<br>sessions</p>
+<p style="position: absolute; left: 30px; top: 142px; margin: 0; font-family: var(--font-mono); font-size: 12px; line-height: 16px; color: #12161c;">Open-air concerts</p>
+<div style="position: absolute; left: 196px; top: 150px; width: 150px; height: 150px; border-radius: 50%; background: #ffb38a;"></div>
+<svg viewBox="0 0 400 190" width="400" height="190" aria-hidden="true" style="position: absolute; left: 0; bottom: 0;"><path d="M0 70 Q90 10 190 52 T400 40 V190 H0Z" fill="#9fd8bd"/><path d="M0 120 Q120 80 240 112 T400 100 V190 H0Z" fill="#7fb49a"/></svg>
+<p style="position: absolute; left: 28px; bottom: 22px; margin: 0; font-family: var(--font-mono); font-size: 13px; line-height: 16px; color: #12161c;">18.04 — 30.05</p>
+<p style="position: absolute; right: 28px; bottom: 22px; margin: 0; font-size: 13px; line-height: 16px; font-weight: 500; color: #12161c;">Riverside park</p>
+</div>
+
+<div aria-hidden="true" style="position: absolute; left: 416px; top: 270px; width: 150px; height: 150px; box-sizing: border-box; border: 1px solid var(--accent-ink);">
+<span style="position: absolute; left: -4px; top: -4px; width: 6px; height: 6px; background: var(--panel); border: 1px solid var(--accent-ink);"></span>
+<span style="position: absolute; left: 70px; top: -4px; width: 6px; height: 6px; background: var(--panel); border: 1px solid var(--accent-ink);"></span>
+<span style="position: absolute; right: -4px; top: -4px; width: 6px; height: 6px; background: var(--panel); border: 1px solid var(--accent-ink);"></span>
+<span style="position: absolute; left: -4px; top: 70px; width: 6px; height: 6px; background: var(--panel); border: 1px solid var(--accent-ink);"></span>
+<span style="position: absolute; right: -4px; top: 70px; width: 6px; height: 6px; background: var(--panel); border: 1px solid var(--accent-ink);"></span>
+<span style="position: absolute; left: -4px; bottom: -4px; width: 6px; height: 6px; background: var(--panel); border: 1px solid var(--accent-ink);"></span>
+<span style="position: absolute; left: 70px; bottom: -4px; width: 6px; height: 6px; background: var(--panel); border: 1px solid var(--accent-ink);"></span>
+<span style="position: absolute; right: -4px; bottom: -4px; width: 6px; height: 6px; background: var(--panel); border: 1px solid var(--accent-ink);"></span>
+<span style="position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%); padding: 1px 6px; background: var(--accent); color: var(--on-accent); font-family: var(--font-mono); font-size: 11px; line-height: 14px; font-weight: 500; letter-spacing: 0.02em; white-space: nowrap;">405 × 405</span>
+</div>
+
+<div aria-hidden="true" style="position: absolute; left: 490px; top: 426px; width: 1px; height: 74px; background: var(--accent-ink);">
+<span style="position: absolute; left: -4px; top: 0; width: 9px; height: 1px; background: var(--accent-ink);"></span>
+<span style="position: absolute; left: -4px; bottom: 0; width: 9px; height: 1px; background: var(--accent-ink);"></span>
+<span style="position: absolute; left: 8px; top: 29px; padding: 0 4px; background: var(--panel); font-family: var(--font-mono); font-size: 11px; line-height: 14px; font-weight: 500; color: var(--accent-ink);">216</span>
+</div>
+</section>
+
+<aside aria-label="Inspector" style="flex: 1 1 272px; max-width: 288px; box-sizing: border-box; padding: 4px; display: flex; flex-direction: column; gap: 4px; background: var(--canvas); border-left: 1px solid var(--line);">
+<x-import component-from-global-scope="TechnicalPastel.Panel" title="Transform">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px;">
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="X" default-value="530" min="-9999" max="9999" unit="px" bar="false" size="sm"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Y" default-value="405" min="-9999" max="9999" unit="px" bar="false" size="sm"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="W" default-value="405" min="0" max="9999" unit="px" bar="false" size="sm"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="H" default-value="405" min="0" max="9999" unit="px" bar="false" size="sm"></x-import>
+</div>
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Rotation" default-value="0" min="0" max="360" unit="°" size="sm"></x-import>
+</x-import>
+<x-import component-from-global-scope="TechnicalPastel.Panel" title="Appearance">
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Opacity" default-value="100" min="0" max="100" unit="%" size="sm"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Blur" default-value="0" min="0" max="64" unit="px" size="sm"></x-import>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px;">
+<span style="font-size: 12px; line-height: 16px; font-weight: 500; color: var(--ink-muted);">Blend</span>
+<x-import component-from-global-scope="TechnicalPastel.Segmented" label="Blend mode" size="sm" items="{{ blends }}" default-value="normal"></x-import>
+</div>
+</x-import>
+<x-import component-from-global-scope="TechnicalPastel.Panel" title="Fill">
+<div role="radiogroup" aria-label="Document colors" style="display: flex; flex-wrap: wrap; gap: 6px;">
+<button type="button" role="radio" aria-checked="true" aria-label="#FFB38A" style="width: 22px; height: 22px; padding: 0; border: 1px solid var(--line-control); border-radius: var(--radius-sm); background: #ffb38a; outline: 2px solid var(--ink); outline-offset: 2px; cursor: pointer;"></button>
+<button type="button" role="radio" aria-checked="false" aria-label="#9FD8BD" style="width: 22px; height: 22px; padding: 0; border: 1px solid var(--line-control); border-radius: var(--radius-sm); background: #9fd8bd; cursor: pointer;"></button>
+<button type="button" role="radio" aria-checked="false" aria-label="#7FB49A" style="width: 22px; height: 22px; padding: 0; border: 1px solid var(--line-control); border-radius: var(--radius-sm); background: #7fb49a; cursor: pointer;"></button>
+<button type="button" role="radio" aria-checked="false" aria-label="#FFF3D6" style="width: 22px; height: 22px; padding: 0; border: 1px solid var(--line-control); border-radius: var(--radius-sm); background: #fff3d6; cursor: pointer;"></button>
+<button type="button" role="radio" aria-checked="false" aria-label="#12161C" style="width: 22px; height: 22px; padding: 0; border: 1px solid var(--line-control); border-radius: var(--radius-sm); background: #12161c; cursor: pointer;"></button>
+</div>
+<div style="display: flex; gap: 4px; margin-top: 6px;">
+<label style="flex: 1; height: 24px; display: flex; align-items: center; gap: 8px; padding: 0 8px; box-sizing: border-box; background: var(--field); border: 1px solid var(--line-control); border-radius: var(--radius-sm);"><span style="font-size: 12px; font-weight: 500; color: var(--ink-muted);">Hex</span><input value="FFB38A" aria-label="Hex color" style="flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; text-align: right; font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--ink);"></label>
+</div>
+</x-import>
+<x-import component-from-global-scope="TechnicalPastel.Panel" title="Export" default-open="false"></x-import>
+</aside>
+</div>
+
+<footer style="height: 28px; display: flex; align-items: center; gap: 16px; padding: 0 12px; background: var(--panel); border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; line-height: 14px; letter-spacing: 0.02em; color: var(--ink-muted);">
+<span style="color: var(--ink);">Sun · ellipse</span>
+<span>X 530  Y 405</span>
+<span>1 of 6 selected</span>
+<span style="margin-left: auto; display: flex; align-items: center; gap: 6px;"><x-import component-from-global-scope="TechnicalPastel.Icon" name="check" size="16"></x-import>Snap to pixel grid</span>
+</footer>
+</div>
+<script type="text/plain" id="screen-logic">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      modes: [
+        { value: 'design', label: 'Design' },
+        { value: 'animate', label: 'Animate' },
+        { value: 'export', label: 'Export' }
+      ],
+      blends: [
+        { value: 'normal', label: 'Normal' },
+        { value: 'multiply', label: 'Multiply' },
+        { value: 'screen', label: 'Screen' }
+      ]
+    };
+  }
+}
+</script>
+<script src="technical-pastel/render.js"></script>
+</body>
+</html>

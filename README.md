@@ -1,2 +1,3 @@
-# my-design-systems
-A repo to store design systems
+# My Design Systems
+
+A repo to store and share my design systems

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.setAttribute('data-theme', new URLSearchParams(location.search).get('theme') || 'light');</script>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../bundle.css">
+<script src="../vendor/react.production.min.js"></script>
+<script src="../vendor/react-dom.production.min.js"></script>
+<script src="../bundle.js"></script>
+<meta charset="utf-8">
+<title>Technical Pastel</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--panel); color: var(--ink); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; height: 288px; overflow: hidden; }
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; overflow: hidden; }
+  .art svg { display: block; width: 480px; height: 288px; }
+  .blue { fill: var(--pastel-blue); }
+  .lilac { fill: var(--pastel-lilac); }
+  .butter { fill: var(--pastel-butter); }
+  .mint { fill: var(--pastel-mint); }
+  .rose { fill: var(--pastel-rose); }
+  .tile { rx: var(--radius-xl); }
+  .words { position: absolute; left: var(--space-6); bottom: var(--space-6); max-width: 440px; }
+  .name { margin: 0; font-size: 96px; line-height: .9; font-weight: 600; letter-spacing: -0.035em; color: var(--ink); }
+  .tag { margin: var(--space-3) 0 0 4px; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<rect class="blue tile" x="24" y="96" width="168" height="168"/>
+<rect class="lilac tile" x="216" y="-16" width="120" height="200"/>
+<rect class="butter tile" x="352" y="-16" width="144" height="112"/>
+<rect class="mint tile" x="352" y="112" width="144" height="192"/>
+<rect class="rose tile" x="216" y="200" width="120" height="104"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Technical<br>Pastel</h1>
+<p class="tag">A design system for creative tools.</p>
+</div>
+</div>
+</body>
+</html>

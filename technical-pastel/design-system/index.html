@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technical Pastel design system</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; background: var(--canvas); color: var(--ink); font-family: var(--font-sans); font-size: 13px; line-height: 20px; }
+  .top { display: flex; align-items: center; gap: 16px; padding: 16px 24px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  .top img { height: 22px; }
+  .top p { margin: 0; color: var(--ink-muted); }
+  main { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+  .card header { display: flex; align-items: baseline; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .card h2 { margin: 0; font-size: 16px; line-height: 22px; font-weight: 600; }
+  .card p { margin: 0; flex: 1; color: var(--ink-muted); }
+  .card a { color: var(--accent-ink); }
+  .frames { display: flex; flex-wrap: wrap; overflow-x: auto; }
+  iframe { border: 0; display: block; max-width: none; }
+  iframe + iframe { border-left: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="top"><img src="assets/logos/technical-pastel-wordmark.svg" alt="Technical Pastel"><p>Design system preview. Each component is shown in the light and dark theme.</p></div>
+<main>
+<section class="card">
+  <header><h2>Cover</h2><p></p><a href="components/Cover/preview.html">Open</a></header>
+  <div class="frames"><iframe title="Cover, light" src="components/Cover/preview.html?theme=light" style="width:960px;height:288px"></iframe>
+  <iframe title="Cover, dark" src="components/Cover/preview.html?theme=dark" style="width:960px;height:288px"></iframe></div>
+</section>
+<section class="card">
+  <header><h2>Icon</h2><p>Line icons drawn like a technical diagram</p><a href="components/Icon/preview.html">Open</a></header>
+  <div class="frames"><iframe title="Icon, light" src="components/Icon/preview.html?theme=light" style="width:640px;height:236px"></iframe>
+  <iframe title="Icon, dark" src="components/Icon/preview.html?theme=dark" style="width:640px;height:236px"></iframe></div>
+</section>
+<section class="card">
+  <header><h2>Button</h2><p>Blue primary, one per view</p><a href="components/Button/preview.html">Open</a></header>
+  <div class="frames"><iframe title="Button, light" src="components/Button/preview.html?theme=light" style="width:640px;height:136px"></iframe>
+  <iframe title="Button, dark" src="components/Button/preview.html?theme=dark" style="width:640px;height:136px"></iframe></div>
+</section>
+<section class="card">
+  <header><h2>Segmented</h2><p>Modes, views and alignment</p><a href="components/Segmented/preview.html">Open</a></header>
+  <div class="frames"><iframe title="Segmented, light" src="components/Segmented/preview.html?theme=light" style="width:640px;height:132px"></iframe>
+  <iframe title="Segmented, dark" src="components/Segmented/preview.html?theme=dark" style="width:640px;height:132px"></iframe></div>
+</section>
+<section class="card">
+  <header><h2>Panel</h2><p>Modular inspector panels</p><a href="components/Panel/preview.html">Open</a></header>
+  <div class="frames"><iframe title="Panel, light" src="components/Panel/preview.html?theme=light" style="width:640px;height:316px"></iframe>
+  <iframe title="Panel, dark" src="components/Panel/preview.html?theme=dark" style="width:640px;height:316px"></iframe></div>
+</section>
+<section class="card">
+  <header><h2>ValueField</h2><p>Drag to scrub, click to type, arrows to step</p><a href="components/ValueField/preview.html">Open</a></header>
+  <div class="frames"><iframe title="ValueField, light" src="components/ValueField/preview.html?theme=light" style="width:640px;height:150px"></iframe>
+  <iframe title="ValueField, dark" src="components/ValueField/preview.html?theme=dark" style="width:640px;height:150px"></iframe></div>
+</section>
+<section class="card">
+  <header><h2>EmptyState</h2><p>Crop marks, a pastel tile and a dimension line</p><a href="components/EmptyState/preview.html">Open</a></header>
+  <div class="frames"><iframe title="EmptyState, light" src="components/EmptyState/preview.html?theme=light" style="width:640px;height:316px"></iframe>
+  <iframe title="EmptyState, dark" src="components/EmptyState/preview.html?theme=dark" style="width:640px;height:316px"></iframe></div>
+</section>
+</main>
+</body>
+</html>

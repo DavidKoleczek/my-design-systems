@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timeline</title>
+<link rel="stylesheet" href="technical-pastel/tokens.css">
+<link rel="stylesheet" href="technical-pastel/components/bundle.css">
+<style>body{margin:0}
+a{color:inherit}a:hover{color:inherit}</style>
+<script src="technical-pastel/components/vendor/react.production.min.js"></script>
+<script src="technical-pastel/components/vendor/react-dom.production.min.js"></script>
+<script src="technical-pastel/components/bundle.js"></script>
+</head>
+<body>
+<div data-theme="dark" style="min-height: 100vh; display: flex; flex-direction: column; background: var(--canvas); color: var(--ink); font-family: var(--font-sans); font-size: 13px; line-height: 20px;">
+
+<header style="min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 6px 12px; box-sizing: border-box; background: var(--panel); border-bottom: 1px solid var(--line);">
+<a href="home.html" aria-label="Back to your projects" style="display: flex; align-items: center; padding: 4px;"><img src="technical-pastel/logos/technical-pastel-wordmark-light.svg" alt="Technical Pastel" style="height: 16px; width: auto; display: block;"></a>
+<span aria-hidden="true" style="width: 1px; height: 20px; background: var(--line);"></span>
+<span style="font-weight: 500;">Launch film</span>
+<span style="font-family: var(--font-mono); font-size: 11px; line-height: 14px; letter-spacing: 0.02em; color: var(--ink-muted);">Saved</span>
+<div style="flex: 1;"></div>
+<x-import component-from-global-scope="TechnicalPastel.Segmented" label="Mode" items="{{ modes }}" default-value="edit"></x-import>
+<div style="flex: 1;"></div>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" size="sm" icon="undo" aria-label="Undo"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" size="sm" icon="redo" aria-label="Redo"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" size="sm">Share</x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="primary" size="sm" icon="export">Render</x-import>
+</header>
+
+<div style="flex: 1 1 auto; display: flex; flex-wrap: wrap; min-height: 0;">
+
+<aside aria-label="Media" style="flex: 1 1 232px; max-width: 248px; box-sizing: border-box; background: var(--panel); border-right: 1px solid var(--line); display: flex; flex-direction: column;">
+<div style="height: 32px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 12px; border-bottom: 1px solid var(--line);">
+<span style="font-size: 12px; line-height: 16px; font-weight: 500;">Media</span>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" size="sm" icon="add" aria-label="Import media"></x-import>
+</div>
+<ul style="list-style: none; margin: 0; padding: 6px 4px; display: flex; flex-direction: column; gap: 2px;">
+<li style="display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: var(--radius-sm);"><svg viewBox="0 0 48 27" width="48" height="27" aria-hidden="true"><rect width="48" height="27" fill="#9cc9f5"/><circle cx="34" cy="10" r="4" fill="#ffd08a"/><path d="M0 20 L14 13 L26 18 L48 11 V27 H0Z" fill="#33473a"/></svg><span style="flex: 1; min-width: 0; display: flex; flex-direction: column;"><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">A001 wide sunrise</span><span style="font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:00:08:12</span></span><span style="width: 10px; height: 10px; flex: none; background: var(--pastel-blue);"></span></li>
+<li style="display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: var(--radius-sm); background: var(--accent-soft);"><svg viewBox="0 0 48 27" width="48" height="27" aria-hidden="true"><rect width="48" height="27" fill="#a9c7a1"/><path d="M0 14 L20 8 L48 15 V27 H0Z" fill="#2f5d3a"/><path d="M0 21 L30 16 L48 20 V27 H0Z" fill="#24492d"/></svg><span style="flex: 1; min-width: 0; display: flex; flex-direction: column;"><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500;">A002 hills pan</span><span style="font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:00:12:00</span></span><span style="width: 10px; height: 10px; flex: none; background: var(--pastel-mint);"></span></li>
+<li style="display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: var(--radius-sm);"><svg viewBox="0 0 48 27" width="48" height="27" aria-hidden="true"><rect width="48" height="27" fill="#3a2f2b"/><circle cx="24" cy="14" r="8" fill="#d9b49a"/><circle cx="24" cy="14" r="3" fill="#3a2f2b"/></svg><span style="flex: 1; min-width: 0; display: flex; flex-direction: column;"><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">A003 close-up</span><span style="font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:00:04:20</span></span><span style="width: 10px; height: 10px; flex: none; background: var(--pastel-rose);"></span></li>
+<li style="display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: var(--radius-sm);"><span style="width: 48px; height: 27px; display: flex; align-items: center; justify-content: center; background: var(--field); border: 1px solid var(--line); box-sizing: border-box; color: var(--ink-muted);"><x-import component-from-global-scope="TechnicalPastel.Icon" name="record" size="16"></x-import></span><span style="flex: 1; min-width: 0; display: flex; flex-direction: column;"><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">VO take 3.wav</span><span style="font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:00:15:08</span></span><span style="width: 10px; height: 10px; flex: none; background: var(--pastel-butter);"></span></li>
+<li style="display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: var(--radius-sm);"><span style="width: 48px; height: 27px; display: flex; align-items: center; justify-content: center; background: var(--field); border: 1px solid var(--line); box-sizing: border-box; color: var(--ink-muted);"><x-import component-from-global-scope="TechnicalPastel.Icon" name="play" size="16"></x-import></span><span style="flex: 1; min-width: 0; display: flex; flex-direction: column;"><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Score v2.wav</span><span style="font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:02:14:00</span></span><span style="width: 10px; height: 10px; flex: none; background: var(--pastel-lilac);"></span></li>
+</ul>
+</aside>
+
+<section aria-label="Viewer" style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 28px 24px 16px; box-sizing: border-box;">
+<div aria-hidden="true" style="width: 560px; max-width: 100%; display: flex; align-items: center; gap: 8px;">
+<span style="flex: 1; height: 8px; border-top: 1px solid var(--line-control); border-left: 1px solid var(--line-control); margin-top: 8px;"></span>
+<span style="font-family: var(--font-mono); font-size: 11px; line-height: 14px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-muted);">1920 × 1080 · 24 fps</span>
+<span style="flex: 1; height: 8px; border-top: 1px solid var(--line-control); border-right: 1px solid var(--line-control); margin-top: 8px;"></span>
+</div>
+<div style="position: relative; width: 560px; max-width: 100%; aspect-ratio: 16 / 9;">
+<svg viewBox="0 0 560 315" width="100%" role="img" aria-label="Frame 296: a wide shot of green hills under a pale sky" style="display: block;"><rect width="560" height="315" fill="#9cc9f5"/><circle cx="410" cy="104" r="40" fill="#ffd08a"/><path d="M0 200 Q130 120 280 170 T560 150 V315 H0Z" fill="#33473a"/><path d="M0 250 Q160 210 330 240 T560 230 V315 H0Z" fill="#24492d"/></svg>
+<div aria-hidden="true" style="position: absolute; left: 5%; top: 5%; right: 5%; bottom: 5%; border: 1px solid rgba(20, 20, 20, 0.35);"></div>
+<span aria-hidden="true" style="position: absolute; left: -12px; top: -12px; width: 8px; height: 8px; border-top: 1px solid var(--line-control); border-left: 1px solid var(--line-control);"></span>
+<span aria-hidden="true" style="position: absolute; right: -12px; top: -12px; width: 8px; height: 8px; border-top: 1px solid var(--line-control); border-right: 1px solid var(--line-control);"></span>
+<span aria-hidden="true" style="position: absolute; left: -12px; bottom: -12px; width: 8px; height: 8px; border-bottom: 1px solid var(--line-control); border-left: 1px solid var(--line-control);"></span>
+<span aria-hidden="true" style="position: absolute; right: -12px; bottom: -12px; width: 8px; height: 8px; border-bottom: 1px solid var(--line-control); border-right: 1px solid var(--line-control);"></span>
+</div>
+<div style="width: 560px; max-width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px;">
+<span style="font-family: var(--font-mono); font-size: 20px; line-height: 24px; font-weight: 500; letter-spacing: 0.02em; font-variant-numeric: tabular-nums;">00:00:12:08</span>
+<div style="display: flex; align-items: center; gap: 4px;">
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="ghost" icon="record" aria-label="Record voiceover"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.Button" variant="secondary" size="lg" icon="play" aria-label="Play"></x-import>
+</div>
+<span style="font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; color: var(--ink-muted); font-variant-numeric: tabular-nums;">00:02:14:00</span>
+</div>
+</section>
+
+<aside aria-label="Inspector" style="flex: 1 1 272px; max-width: 288px; box-sizing: border-box; padding: 4px; display: flex; flex-direction: column; gap: 4px; background: var(--canvas); border-left: 1px solid var(--line);">
+<x-import component-from-global-scope="TechnicalPastel.Panel" title="Clip">
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Speed" default-value="1" min="0.25" max="4" step="0.05" precision="2" unit="×" size="sm"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Opacity" default-value="100" min="0" max="100" unit="%" size="sm"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Scale" default-value="112" min="0" max="400" unit="%" size="sm"></x-import>
+</x-import>
+<x-import component-from-global-scope="TechnicalPastel.Panel" title="Color">
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Exposure" default-value="0.3" min="-4" max="4" step="0.1" unit="EV" size="sm"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Temperature" default-value="5600" min="2000" max="10000" step="100" unit="K" size="sm"></x-import>
+</x-import>
+<x-import component-from-global-scope="TechnicalPastel.Panel" title="Audio">
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Gain" default-value="-6" min="-60" max="12" step="0.1" unit="dB" size="sm"></x-import>
+<x-import component-from-global-scope="TechnicalPastel.ValueField" label="Pan" default-value="0" min="-100" max="100" size="sm"></x-import>
+</x-import>
+</aside>
+</div>
+
+<section aria-label="Timeline" style="flex: 0 0 auto; background: var(--panel); border-top: 1px solid var(--line); display: flex; flex-direction: column;">
+<div style="height: 36px; display: flex; align-items: center; gap: 12px; padding: 0 12px; border-bottom: 1px solid var(--line);">
+<x-import component-from-global-scope="TechnicalPastel.Segmented" label="Timeline tool" size="sm" items="{{ tools }}" default-value="select"></x-import>
+<span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-muted);"><x-import component-from-global-scope="TechnicalPastel.Icon" name="check" size="16"></x-import>Snapping</span>
+<span style="margin-left: auto; font-family: var(--font-mono); font-size: 11px; line-height: 14px; letter-spacing: 0.02em; color: var(--ink-muted);">30 px / s</span>
+</div>
+
+<div style="position: relative; overflow-x: auto;">
+<div style="position: relative; min-width: 1240px;">
+<div aria-hidden="true" style="height: 24px; display: flex; border-bottom: 1px solid var(--line);">
+<span style="flex: 0 0 160px; border-right: 1px solid var(--line);"></span>
+<span style="flex: 0 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:00</span>
+<span style="flex: 0 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:04</span>
+<span style="flex: 0 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:08</span>
+<span style="flex: 0 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:12</span>
+<span style="flex: 0 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:16</span>
+<span style="flex: 0 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:20</span>
+<span style="flex: 0 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:24</span>
+<span style="flex: 0 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:28</span>
+<span style="flex: 0 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:32</span>
+<span style="flex: 1 0 120px; border-left: 1px solid var(--line-control); padding: 4px 4px 0; box-sizing: border-box; font-family: var(--font-mono); font-size: 11px; line-height: 14px; color: var(--ink-muted);">00:36</span>
+</div>
+
+<div style="height: 44px; display: flex; border-bottom: 1px solid var(--line);">
+<div style="flex: 0 0 160px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 12px; border-right: 1px solid var(--line);"><span style="font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--ink-muted);">V2</span><span style="flex: 1;">Titles</span><x-import component-from-global-scope="TechnicalPastel.Icon" name="eye" size="16" style="color: var(--ink-muted);"></x-import></div>
+<div style="position: relative; flex: 1;">
+<div style="position: absolute; left: 300px; width: 150px; top: 6px; bottom: 6px; background: var(--pastel-lilac); color: var(--on-pastel); padding: 4px 8px; box-sizing: border-box; font-size: 11px; line-height: 14px; font-weight: 500; white-space: nowrap; overflow: hidden;">Title: Launch day</div>
+</div>
+</div>
+
+<div style="height: 52px; display: flex; border-bottom: 1px solid var(--line);">
+<div style="flex: 0 0 160px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 12px; border-right: 1px solid var(--line);"><span style="font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--ink-muted);">V1</span><span style="flex: 1;">Picture</span><x-import component-from-global-scope="TechnicalPastel.Icon" name="eye" size="16" style="color: var(--ink-muted);"></x-import></div>
+<div style="position: relative; flex: 1;">
+<div style="position: absolute; left: 0; width: 254px; top: 6px; bottom: 6px; background: var(--pastel-blue); color: var(--on-pastel); padding: 4px 8px; box-sizing: border-box; font-size: 11px; line-height: 14px; font-weight: 500; white-space: nowrap; overflow: hidden;">A001 wide sunrise</div>
+<div style="position: absolute; left: 256px; width: 358px; top: 6px; bottom: 6px; background: var(--pastel-mint); color: var(--on-pastel); padding: 4px 8px; box-sizing: border-box; font-size: 11px; line-height: 14px; font-weight: 500; white-space: nowrap; overflow: visible; outline: 1px solid var(--accent); outline-offset: 1px;">A002 hills pan<span aria-hidden="true" style="position: absolute; left: -3px; top: 50%; width: 4px; height: 16px; margin-top: -8px; background: var(--accent);"></span><span aria-hidden="true" style="position: absolute; right: -3px; top: 50%; width: 4px; height: 16px; margin-top: -8px; background: var(--accent);"></span></div>
+<div style="position: absolute; left: 616px; width: 142px; top: 6px; bottom: 6px; background: var(--pastel-rose); color: var(--on-pastel); padding: 4px 8px; box-sizing: border-box; font-size: 11px; line-height: 14px; font-weight: 500; white-space: nowrap; overflow: hidden;">A003 close-up</div>
+<div style="position: absolute; left: 760px; width: 230px; top: 6px; bottom: 6px; background: var(--pastel-blue); color: var(--on-pastel); padding: 4px 8px; box-sizing: border-box; font-size: 11px; line-height: 14px; font-weight: 500; white-space: nowrap; overflow: hidden;">A001 wide sunrise</div>
+</div>
+</div>
+
+<div style="height: 56px; display: flex; border-bottom: 1px solid var(--line);">
+<div style="flex: 0 0 160px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 12px; border-right: 1px solid var(--line);"><span style="font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--ink-muted);">A1</span><span style="flex: 1;">Voice</span><x-import component-from-global-scope="TechnicalPastel.Icon" name="lock" size="16" style="color: var(--ink-muted);"></x-import></div>
+<div style="position: relative; flex: 1;">
+<div style="position: absolute; left: 60px; width: 460px; top: 6px; bottom: 6px; background: var(--pastel-butter); color: var(--on-pastel); box-sizing: border-box; overflow: hidden;">
+<span style="position: absolute; left: 8px; top: 3px; font-size: 11px; line-height: 14px; font-weight: 500;">VO take 3</span>
+<svg viewBox="0 0 120 40" preserveAspectRatio="none" width="100%" height="28" aria-hidden="true" style="position: absolute; left: 0; bottom: 2px;"><path d="M2 18v4M5 14v12M8 16v8M11 10v20M14 15v10M17 12v16M20 17v6M23 8v24M26 14v12M29 11v18M32 16v8M35 9v22M38 13v14M41 17v6M44 10v20M47 12v16M50 15v10M53 7v26M56 13v14M59 16v8M62 11v18M65 14v12M68 9v22M71 16v8M74 12v16M77 15v10M80 10v20M83 13v14M86 17v6M89 11v18M92 14v12M95 8v24M98 15v10M101 12v16M104 16v8M107 10v20M110 14v12M113 17v6M116 13v14M119 18v4" stroke="#12161c" stroke-width="1.25" vector-effect="non-scaling-stroke" fill="none"/></svg>
+</div>
+</div>
+</div>
+
+<div style="height: 56px; display: flex; border-bottom: 1px solid var(--line);">
+<div style="flex: 0 0 160px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 8px 0 12px; border-right: 1px solid var(--line);"><span style="font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--ink-muted);">A2</span><span style="flex: 1;">Score</span><x-import component-from-global-scope="TechnicalPastel.Icon" name="eye" size="16" style="color: var(--ink-muted);"></x-import></div>
+<div style="position: relative; flex: 1;">
+<div style="position: absolute; left: 0; width: 1040px; top: 6px; bottom: 6px; background: var(--pastel-lilac); color: var(--on-pastel); box-sizing: border-box; overflow: hidden;">
+<span style="position: absolute; left: 8px; top: 3px; font-size: 11px; line-height: 14px; font-weight: 500;">Score v2</span>
+<svg viewBox="0 0 120 40" preserveAspectRatio="none" width="100%" height="28" aria-hidden="true" style="position: absolute; left: 0; bottom: 2px;"><path d="M2 16v8M5 12v16M8 14v12M11 9v22M14 13v14M17 10v20M20 15v10M23 7v26M26 12v16M29 9v22M32 14v12M35 8v24M38 11v18M41 15v10M44 9v22M47 10v20M50 13v14M53 6v28M56 11v18M59 14v12M62 9v22M65 12v16M68 8v24M71 14v12M74 10v20M77 13v14M80 9v22M83 11v18M86 15v10M89 9v22M92 12v16M95 7v26M98 13v14M101 10v20M104 14v12M107 9v22M110 12v16M113 15v10M116 11v18M119 16v8" stroke="#12161c" stroke-width="1" vector-effect="non-scaling-stroke" fill="none"/></svg>
+</div>
+</div>
+</div>
+
+<div aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: 530px; width: 1px; background: var(--accent);">
+<span style="position: absolute; top: 2px; left: 50%; transform: translateX(-50%); padding: 1px 6px; background: var(--accent); color: var(--on-accent); font-family: var(--font-mono); font-size: 11px; line-height: 14px; font-weight: 500; white-space: nowrap;">00:00:12:08</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script type="text/plain" id="screen-logic">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      modes: [
+        { value: 'edit', label: 'Edit' },
+        { value: 'color', label: 'Color' },
+        { value: 'audio', label: 'Audio' },
+        { value: 'deliver', label: 'Deliver' }
+      ],
+      tools: [
+        { value: 'select', icon: 'select', title: 'Select' },
+        { value: 'move', icon: 'move', title: 'Slip' },
+        { value: 'crop', icon: 'crop', title: 'Trim' },
+        { value: 'measure', icon: 'measure', title: 'Ripple' }
+      ]
+    };
+  }
+}
+</script>
+<script src="technical-pastel/render.js"></script>
+</body>
+</html>

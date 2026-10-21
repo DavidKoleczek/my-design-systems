@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.setAttribute('data-theme', new URLSearchParams(location.search).get('theme') || 'light');</script>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../bundle.css">
+<script src="../vendor/react.production.min.js"></script>
+<script src="../vendor/react-dom.production.min.js"></script>
+<script src="../bundle.js"></script><meta charset="utf-8"><title>ValueField</title>
+<style>.stage{display:grid;grid-template-columns:repeat(2,minmax(0,220px));gap:4px 16px;padding:16px}</style></head>
+<body>
+<div id="root" class="stage"></div>
+<script>
+  var P = window.TechnicalPastel, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(P.ValueField, { label: 'Opacity', defaultValue: 80, min: 0, max: 100, unit: '%' }),
+    h(P.ValueField, { label: 'Frame rate', defaultValue: 24, min: 1, max: 120, unit: 'fps' }),
+    h(P.ValueField, { label: 'Roughness', defaultValue: 0.35, min: 0, max: 1, step: 0.01 }),
+    h(P.ValueField, { label: 'Gain', defaultValue: -6, min: -60, max: 12, step: 0.1, unit: 'dB' }),
+    h(P.ValueField, { label: 'Speed', defaultValue: 1, min: 0.25, max: 4, step: 0.05, precision: 2, unit: '×' }),
+    h(P.ValueField, { label: 'Tempo', defaultValue: 120, min: 40, max: 240, unit: 'bpm', disabled: true })));
+</script>
+</body>
+</html>

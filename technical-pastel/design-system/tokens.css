@@ -1,0 +1,93 @@
+/* Technical Pastel — generated from tokens.json */
+:root, [data-theme="light"] {
+  --canvas: #e7ecf1;
+  --panel: #ffffff;
+  --raised: #ffffff;
+  --field: #f1f4f7;
+  --hover: #edf1f5;
+  --line: #dfe5eb;
+  --line-control: #7f8994;
+  --ink: #12161c;
+  --ink-muted: #56606b;
+  --ink-faint: #98a1ab;
+  --accent: #6ab3ee;
+  --accent-ink: #1565b0;
+  --accent-soft: #dcecfb;
+  --on-accent: #12161c;
+  --pastel-blue: #bcdcf7;
+  --pastel-lilac: #d6c8f5;
+  --pastel-rose: #f6c6d3;
+  --pastel-peach: #fbd3bc;
+  --pastel-butter: #f8e6a6;
+  --pastel-mint: #bfe8d5;
+  --pastel-sage: #cfdcc0;
+  --pastel-stone: #d9d6cf;
+  --on-pastel: #12161c;
+  --danger: #c8281c;
+  --danger-soft: #fde8e6;
+  --on-danger: #ffffff;
+  --shadow-popover: 0 8px 24px #12161c1f, 0 1px 3px #12161c14;
+  --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px #12161c;
+}
+[data-theme="dark"] {
+  --canvas: #0c0f13;
+  --panel: #171b21;
+  --raised: #1f242b;
+  --field: #0f1317;
+  --hover: #252b33;
+  --line: #283039;
+  --line-control: #6c7682;
+  --ink: #eef2f6;
+  --ink-muted: #a1abb6;
+  --ink-faint: #5f6873;
+  --accent: #6ab3ee;
+  --accent-ink: #7cc0ff;
+  --accent-soft: #10314f;
+  --on-accent: #12161c;
+  --pastel-blue: #bcdcf7;
+  --pastel-lilac: #d6c8f5;
+  --pastel-rose: #f6c6d3;
+  --pastel-peach: #fbd3bc;
+  --pastel-butter: #f8e6a6;
+  --pastel-mint: #bfe8d5;
+  --pastel-sage: #cfdcc0;
+  --pastel-stone: #d9d6cf;
+  --on-pastel: #12161c;
+  --danger: #ff6a5c;
+  --danger-soft: #3f1411;
+  --on-danger: #12161c;
+  --shadow-popover: 0 8px 24px #000000b3, 0 0 0 1px #283039;
+  --focus-ring: 0 0 0 2px #171b21, 0 0 0 4px #eef2f6;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius-0: 0;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --control-sm: 24px;
+  --control-md: 28px;
+  --control-lg: 36px;
+  --panel-header: 32px;
+  --stroke-hair: 1px;
+  --stroke-icon: 1.5px;
+  --handle: 6px;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, Menlo, monospace;
+}
+.ui-display { font-family: var(--font-sans); font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -0.02em }
+.ui-title { font-family: var(--font-sans); font-size: 16px; line-height: 22px; font-weight: 600; letter-spacing: -0.01em }
+.ui-body { font-family: var(--font-sans); font-size: 13px; line-height: 20px; font-weight: 400 }
+.ui-label { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 500 }
+.ui-caption { font-family: var(--font-sans); font-size: 11px; line-height: 14px; font-weight: 400; letter-spacing: 0.01em }
+.mono-value { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500 }
+.mono-annotation { font-family: var(--font-mono); font-size: 11px; line-height: 14px; font-weight: 500; letter-spacing: 0.02em }
+.mono-timecode { font-family: var(--font-mono); font-size: 20px; line-height: 24px; font-weight: 500; letter-spacing: 0.02em }
+@font-face { font-family: "Geist"; src: url("fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }

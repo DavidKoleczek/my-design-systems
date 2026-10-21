@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.setAttribute('data-theme', new URLSearchParams(location.search).get('theme') || 'light');</script>
+<link rel="stylesheet" href="../../tokens.css">
+<link rel="stylesheet" href="../bundle.css">
+<script src="../vendor/react.production.min.js"></script>
+<script src="../vendor/react-dom.production.min.js"></script>
+<script src="../bundle.js"></script><meta charset="utf-8"><title>Segmented</title>
+<style>.stage{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:16px}</style></head>
+<body>
+<div id="root" class="stage"></div>
+<script>
+  var P = window.TechnicalPastel, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null,
+    h(P.Segmented, { label: 'View', defaultValue: 'design', items: [{ value: 'design', label: 'Design' }, { value: 'animate', label: 'Animate' }, { value: 'export', label: 'Export' }] }),
+    h(P.Segmented, { label: 'Tool', size: 'sm', defaultValue: 'select', items: [
+      { value: 'select', icon: 'select', title: 'Select' }, { value: 'frame', icon: 'frame', title: 'Frame' },
+      { value: 'pen', icon: 'pen', title: 'Pen' }, { value: 'shape', icon: 'shape', title: 'Shape' }, { value: 'text', icon: 'text', title: 'Text' }] })));
+</script>
+</body>
+</html>
